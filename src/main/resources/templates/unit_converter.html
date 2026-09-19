@@ -59,13 +59,25 @@
 <p>Unit Converter</p>
 <form action="#" th:action="@{/unit_converter}" th:object="${unit_converter}" method="post">
     <p>
-        Enter the length to convert: <input type="text" th:field="*{length}"/></p>
+        Enter the length to convert: <input type="number" step="any" th:field="*{length}"/></p>
     </p>
     <p>
-        Unit to convert from: <input type="text" th:field="*{unitFrom}"/></p>
+        Unit to convert from:
+        <select th:field="*{unitFrom}">
+            <option value="cm">Centimeters</option>
+            <option value="m">Meters</option>
+            <option value="in">Inches</option>
+            <option value="ft">Feet</option>
+        </select>
     </p>
     <p>
-        Enter the length to convert: <input type="text" th:field="*{unitTo}"/></p>
+        Unit to convert to:
+        <select th:field="*{unitTo}">
+            <option value="cm">Centimeters</option>
+            <option value="m">Meters</option>
+            <option value="in">Inches</option>
+            <option value="ft">Feet</option>
+        </select>
     </p>
     <p class="button">
         <button type="submit">Convert</button>

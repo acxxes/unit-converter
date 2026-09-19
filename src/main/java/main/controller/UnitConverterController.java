@@ -1,5 +1,6 @@
 package main.controller;
 
+import main.service.UnitConverterLogic;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,21 @@ public class UnitConverterController {
     // - finish this, i dont understand it yet
     @PostMapping("/unit_converter")
     public String convert(@ModelAttribute UnitConverter converter, Model model) {
+        double result = UnitConverterLogic.convert(converter);
+        String formatted = String.format("%.2f", result);
+
         model.addAttribute("unit_converter", converter);
+        model.addAttribute("result", result);
+
+        double length = converter.getLength();
+        String unitFrom = converter.getUnitFrom();
+        String unitTo = converter.getUnitTo();
+
+        System.out.println("Length: " + length);
+        System.out.println("From Unit: " + unitFrom);
+        System.out.println("To Unit: " + unitTo);
+        System.out.println("--------------");
+        System.out.println(formatted + unitTo);
         // conversion logic
         return "unit_converter_result";
     }

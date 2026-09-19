@@ -6,9 +6,10 @@
 </head>
 <body>
 <h1>Result</h1>
-<p th:text="'Length: ' + ${unit_converter.length}"/>
+<p th:text="'Length: ' + ${#numbers.formatDecimal(unit_converter.length, 1, 2)}"/>
 <p th:text="'Unit from: ' + ${unit_converter.unitFrom}"/>
 <p th:text="'Unit to: ' + ${unit_converter.unitTo}"/>
-<a href="/unit_converter">Submit another message</a>
+<p th:text="'Converted Result: ' + ${#numbers.formatDecimal(result, 1, 2)}"/>
+<a href="/unit_converter"> [CONVERT ANOTHER UNIT]</a>
 </body>
 </html>
