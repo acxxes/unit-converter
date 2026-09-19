@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Unit Converter</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'Length: ' + ${unit_converter.length}"/>
+<p th:text="'Unit from: ' + ${unit_converter.unitFrom}"/>
+<p th:text="'Unit to: ' + ${unit_converter.unitTo}"/>
+<a href="/unit_converter">Submit another message</a>
+</body>
+</html>

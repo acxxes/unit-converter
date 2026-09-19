@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Unit Converter</title>
+    <style>
+        body {
+            /* centers the form on the page */
+            text-align: center;
+        }
+
+        form {
+            display: inline-block;
+            /* form outline */
+            padding: 1em;
+            border: 1px solid #cccccc;
+            border-radius: 1em;
+        }
+
+        p + p {
+            /* adds spacing between form paragraphs */
+            margin-top: 1em;
+        }
+
+        label {
+            /* uniform size and alignment */
+            display: block;
+            min-width: 90px;
+            text-align: center;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline-style: solid;
+            outline-color: black;
+        }
+
+        textarea {
+            vertical-align: top;
+            height: 5em;
+        }
+
+        .button {
+            padding: 0.5em 1em;
+            /* same size as the label elements */
+        }
+
+        button {
+            /* this extra margin represent roughly the same space as the space
+              between the labels and their text fields */
+            margin-left: .5em;
+        }
+    </style>
+</head>
+
+<body>
+<p>Unit Converter</p>
+<form action="#" th:action="@{/unit_converter}" th:object="${unit_converter}" method="post">
+    <p>
+        Enter the length to convert: <input type="text" th:field="*{length}"/></p>
+    </p>
+    <p>
+        Unit to convert from: <input type="text" th:field="*{unitFrom}"/></p>
+    </p>
+    <p>
+        Enter the length to convert: <input type="text" th:field="*{unitTo}"/></p>
+    </p>
+    <p class="button">
+        <button type="submit">Convert</button>
+    </p>
+</form>
+</body>
+
+</html>
