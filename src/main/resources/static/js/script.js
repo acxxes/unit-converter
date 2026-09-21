@@ -20,10 +20,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (form) {
         form.addEventListener('submit', (event) => {
             const lengthInput = document.querySelector('input[name="length"]');
+            const weightInput = document.querySelector('input[name="weight"]');
+            const temperatureInput = document.querySelector('input[name="temperature"]');
             if (!lengthInput.value) {
+                event.preventDefault();
+                alert('Please enter a length to convert.');
+            }
+            if (!weightInput.value) {
+                event.preventDefault();
+                alert('Please enter a length to convert.');
+            }
+            if (!temperatureInput.value) {
                 event.preventDefault();
                 alert('Please enter a length to convert.');
             }
         });
     }
+
 });
