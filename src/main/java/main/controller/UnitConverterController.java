@@ -29,10 +29,13 @@ public class UnitConverterController {
         model.addAttribute("result", result);
 
         double length = converter.getLength();
+        double weight = converter.getWeight();
+
         String unitFrom = converter.getUnitFrom();
         String unitTo = converter.getUnitTo();
 
         System.out.println("Length: " + length);
+        System.out.println("Weight: " + weight + "\n");
         System.out.println("From Unit: " + unitFrom);
         System.out.println("To Unit: " + unitTo);
         System.out.println("--------------");

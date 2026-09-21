@@ -9,33 +9,116 @@
 </head>
 
 <body>
-<p>Unit Converter</p>
-<form action="#" th:action="@{/unit_converter}" th:object="${unit_converter}" method="post">
-    <p>
-        Enter the length to convert: <input type="number" step="any" th:field="*{length}"/></p>
-    </p>
-    <p>
-        Unit to convert from:
-        <select th:field="*{unitFrom}">
-            <option value="cm">Centimeters</option>
-            <option value="m">Meters</option>
-            <option value="in">Inches</option>
-            <option value="ft">Feet</option>
-        </select>
-    </p>
-    <p>
-        Unit to convert to:
-        <select th:field="*{unitTo}">
-            <option value="cm">Centimeters</option>
-            <option value="m">Meters</option>
-            <option value="in">Inches</option>
-            <option value="ft">Feet</option>
-        </select>
-    </p>
-    <p class="button">
-        <button type="submit">Convert</button>
-    </p>
-</form>
+
+<div class="tab-buttons">
+    <button class="tab-button active" data-tab="tab-length">Length</button>
+    <button class="tab-button" data-tab="tab-weight">Weight</button>
+    <button class="tab-button" data-tab="tab-temperature">Temperature</button>
+</div>
+
+<div id="tab-length" class="tab-content active">
+    <p>Unit Converter</p>
+    <form action="#" th:action="@{/unit_converter}" th:object="${unit_converter}" method="post">
+        <p>
+            Enter the length to convert: <input type="number" step="any" th:field="*{length}"/></p>
+        </p>
+        <p>
+            Unit to convert from:
+            <select th:field="*{unitFrom}">
+                <option value="mm">Millimeters</option>
+                <option value="cm">Centimeters</option>
+                <option value="m">Meters</option>
+                <option value="km">Kilometers</option>
+                <option value="in">Inches</option>
+                <option value="ft">Feet</option>
+                <option value="yd">Yards</option>
+                <option value="mi">Miles</option>
+            </select>
+        </p>
+        <p>
+            Unit to convert to:
+            <select th:field="*{unitTo}">
+                <option value="mm">Millimeters</option>
+                <option value="cm">Centimeters</option>
+                <option value="m">Meters</option>
+                <option value="km">Kilometers</option>
+                <option value="in">Inches</option>
+                <option value="ft">Feet</option>
+                <option value="yd">Yards</option>
+                <option value="mi">Miles</option>
+            </select>
+        </p>
+        <p class="button">
+            <button type="submit">Convert</button>
+        </p>
+    </form>
+</div>
+
+<div id="tab-weight" class="tab-content">
+    <p>Unit Converter</p>
+    <form action="#" th:action="@{/unit_converter}" th:object="${unit_converter}" method="post">
+        <p>
+            Enter the weight to convert: <input type="number" step="any" th:field="*{weight}"/></p>
+        </p>
+        <p>
+            Unit to convert from:
+            <select th:field="*{unitFrom}">
+                <option value="mg">Milligrams</option>
+                <option value="g">Grams</option>
+                <option value="kg">Kilograms</option>
+                <option value="oz">Ounces</option>
+                <option value="lb">Pounds</option>
+                <option value="st">Stone</option>
+                <option value="t">Metric tons</option>
+            </select>
+        </p>
+        <p>
+            Unit to convert to:
+            <select th:field="*{unitTo}">
+                <option value="mg">Milligrams</option>
+                <option value="g">Grams</option>
+                <option value="kg">Kilograms</option>
+                <option value="oz">Ounces</option>
+                <option value="lb">Pounds</option>
+                <option value="st">Stone</option>
+                <option value="t">Metric tons</option>
+            </select>
+        </p>
+        <p class="button">
+            <button type="submit">Convert</button>
+        </p>
+    </form>
+</div>
+
+<div id="tab-temperature" class="tab-content">
+    <p>Unit Converter</p>
+    <form action="#" th:action="@{/unit_converter}" th:object="${unit_converter}" method="post">
+        <p>
+            Enter the temperature to convert: <input type="number" step="any" th:field="*{temperature}"/></p>
+        </p>
+        <p>
+            Unit to convert from:
+            <select th:field="*{unitFrom}">
+                <option value="c">Celsius</option>
+                <option value="f">Fahrenheit</option>
+                <option value="k">Kelvin</option>
+            </select>
+        </p>
+        <p>
+            Unit to convert to:
+            <select th:field="*{unitTo}">
+                <option value="c">Celsius</option>
+                <option value="f">Fahrenheit</option>
+                <option value="k">Kelvin</option>
+            </select>
+        </p>
+        <p class="button">
+            <button type="submit">Convert</button>
+        </p>
+    </form>
+</div>
+
+<script th:src="@{/js/script.js}"></script>
 </body>
 
 </html>
