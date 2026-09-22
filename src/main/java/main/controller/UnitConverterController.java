@@ -30,12 +30,14 @@ public class UnitConverterController {
 
         double length = converter.getLength();
         double weight = converter.getWeight();
+        double temperature = converter.getTemperature();
 
         String unitFrom = converter.getUnitFrom();
         String unitTo = converter.getUnitTo();
 
         System.out.println("Length: " + length);
-        System.out.println("Weight: " + weight + "\n");
+        System.out.println("Weight: " + weight);
+        System.out.println("Temperature: " + temperature + "\n");
         System.out.println("From Unit: " + unitFrom);
         System.out.println("To Unit: " + unitTo);
         System.out.println("--------------");
