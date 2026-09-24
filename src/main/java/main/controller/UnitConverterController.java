@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import main.entity.UnitConverter;
 import org.springframework.web.bind.annotation.RequestHeader;
 
-import java.util.Enumeration;
-
 @Controller
 public class UnitConverterController {
     private final UnitConverterService unitConverterService;
