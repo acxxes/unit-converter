@@ -6,12 +6,19 @@
 </head>
 <body>
 <h1>Result</h1>
-<p th:text="'Length: ' + ${#numbers.formatDecimal(unit_converter.length, 1, 2)}"/>
-<p th:text="'Weight: ' + ${#numbers.formatDecimal(unit_converter.weight, 1, 2)}"/>
-<p th:text="'Temperature: ' + ${#numbers.formatDecimal(unit_converter.temperature, 1, 2)}"/>
+
+<p th:if="${category == 'length'}"
+        th:text="'Length: ' + ${#numbers.formatDecimal(unit_converter.lengthInput, 1, 2)}"/>
+<p th:if="${category == 'weight'}"
+        th:text="'Weight: ' + ${#numbers.formatDecimal(unit_converter.weightInput, 1, 2)}"/>
+<p th:if="${category == 'temperature'}"
+        th:text="'Temperature: ' + ${#numbers.formatDecimal(unit_converter.temperatureInput, 1, 2)}"/>
+
 <p th:text="'Unit from: ' + ${unit_converter.unitFrom}"/>
 <p th:text="'Unit to: ' + ${unit_converter.unitTo}"/>
 <p th:text="'Converted Result: ' + ${#numbers.formatDecimal(result, 1, 2)}"/>
+
 <a href="/unit_converter"> [CONVERT ANOTHER UNIT]</a>
+
 </body>
 </html>

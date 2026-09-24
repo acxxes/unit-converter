@@ -1,12 +1,12 @@
 package main.controller;
 
-import main.service.UnitConverterLogic;
+import main.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import main.pojo.UnitConverter;
+import main.entity.UnitConverter;
 
 @Controller
 public class UnitConverterController {
@@ -22,18 +22,42 @@ public class UnitConverterController {
     // - finish this, i dont understand it yet
     @PostMapping("/unit_converter")
     public String convert(@ModelAttribute UnitConverter converter, Model model) {
-        double result = UnitConverterLogic.convert(converter);
-        String formatted = String.format("%.2f", result);
+        double result = 0;
+        String formatted;
+        StrategyConverter strategyConverter;
+
+        double length = converter.getLengthInput();
+        double weight = converter.getWeightInput();
+        double temperature = converter.getTemperatureInput();
+        String category = converter.getCategory();
+
+        String unitFrom = converter.getUnitFrom().toUpperCase();
+        String unitTo = converter.getUnitTo().toUpperCase();
+
+        System.out.println("Category received: " + category);
+
+        switch (category) {
+            case "length":
+                strategyConverter = new LengthConverter();
+                result = strategyConverter.convert(length, unitFrom, unitTo);
+                break;
+            case "weight":
+                strategyConverter = new WeightConverter();
+                result = strategyConverter.convert(weight, unitFrom, unitTo);
+                break;
+            case "temperature":
+                strategyConverter = new TemperatureConverter();
+                result = strategyConverter.convert(temperature, unitFrom, unitTo);
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid category type" + category);
+        }
+
+        formatted = String.format("%.2f", result);
 
         model.addAttribute("unit_converter", converter);
         model.addAttribute("result", result);
-
-        double length = converter.getLength();
-        double weight = converter.getWeight();
-        double temperature = converter.getTemperature();
-
-        String unitFrom = converter.getUnitFrom();
-        String unitTo = converter.getUnitTo();
+        model.addAttribute("category", category);
 
         System.out.println("Length: " + length);
         System.out.println("Weight: " + weight);

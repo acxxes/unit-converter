@@ -18,9 +18,9 @@
 <div id="tab-length" class="tab-content active">
     <p>Unit Converter</p>
     <form action="#" th:action="@{/unit_converter}" th:object="${unit_converter}" method="post">
+        <input type="hidden" name="category" value="length"/>
         <p>
-            Enter the length to convert: <input type="number" step="any" th:field="*{length}"/></p>
-        </p>
+            Enter the length to convert: <input type="number" step="any" th:field="*{lengthInput}"/></p>
         <p>
             Unit to convert from:
             <select th:field="*{unitFrom}">
@@ -56,8 +56,9 @@
 <div id="tab-weight" class="tab-content">
     <p>Unit Converter</p>
     <form action="#" th:action="@{/unit_converter}" th:object="${unit_converter}" method="post">
+        <input type="hidden" name="category" value="weight"/>
         <p>
-            Enter the weight to convert: <input type="number" step="any" th:field="*{weight}"/></p>
+            Enter the weight to convert: <input type="number" step="any" th:field="*{weightInput}"/>
         </p>
         <p>
             Unit to convert from:
@@ -92,8 +93,9 @@
 <div id="tab-temperature" class="tab-content">
     <p>Unit Converter</p>
     <form action="#" th:action="@{/unit_converter}" th:object="${unit_converter}" method="post">
+        <input type="hidden" name="category" value="temperature"/>
         <p>
-            Enter the temperature to convert: <input type="number" step="any" th:field="*{temperature}"/></p>
+            Enter the temperature to convert: <input type="number" step="any" th:field="*{temperatureInput}"/>
         </p>
         <p>
             Unit to convert from:
